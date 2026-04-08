@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <title>Brandstofkost Calculator</title>
+</head>
+<body>
+    <h1>Brandstofkost ⛽</h1>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <label>Afstand (km):</label><br>
+        <input type="number" step="any" name="afstand"><br><br>
+
+        <label>Verbruik (L/100km):</label><br>
+        <input type="number" step="any" name="verbruik"><br><br>
+
+        <label>Prijs per liter (€):</label><br>
+        <input type="number" step="any" name="prijs"><br><br>
+
+        <button type="submit">Bereken</button>
+    </form>
+
+    {% if liters %}
+        <h2>Resultaat:</h2>
+        <p>Liters: {{ liters }}</p>
+        <p>Kost: €{{ kost }}</p>
+    {% endif %}
+</body>
+</html>
